@@ -3,6 +3,16 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font: inherit;
+  font-size:100%;
   font-family: "Press Start 2P", cursive;
+  vertical-align:baseline;
   user-select: none;
+  outline: none;
 }
+/*
+a:link {text-decoration: none;color: #000;}
+a:visited {text-decoration: none; color: #000;}
+a:hover {text-decoration: none;color: #000;}
+a:active {text-decoration: none;color: #000;}
+*/
