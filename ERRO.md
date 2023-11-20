@@ -1,1 +1,0 @@
-# dio-yugioh-Pedra-papel-tesoura
