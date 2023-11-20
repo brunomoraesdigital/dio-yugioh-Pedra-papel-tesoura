@@ -2,7 +2,8 @@ const state = {
     score: {
         playerScore: 0,
         computerScore: 0,
-        scoreBox: document.getElementById("score_points"),
+        scoreBoxUm: document.getElementById("score-points-win"),
+        scoreBoxDois: document.getElementById("score-points-lose"),
     },
     cardSprites: {
         avatar: document.getElementById("card-image"),
@@ -101,9 +102,11 @@ async function setCardsField(cardId){
 async function drawButton(text) {
     state.actions.buttom.innerText = text.toUpperCase();
     state.actions.buttom.style.display = "block";
+    /*state.actions.buttom.style.visibility = "visible";*/
 }
 async function updateScore() {
-    state.score.scoreBox.innerText = `Win: ${state.score.playerScore} | Lose: ${state.score.computerScore}`;
+    state.score.scoreBoxUm.innerText = `Win: ${state.score.playerScore}`;
+    state.score.scoreBoxDois.innerText = `Lose: ${state.score.computerScore}`;
 }
 
 async function checkDuelResults(playerCardId, computerCardId) {
@@ -151,6 +154,7 @@ async function drawCards(cardNumbers, fieldSide) {
 async function resetDuel() {
     state.cardSprites.avatar.src = "";
     state.actions.buttom.style.display = "none";
+    /*visibility: hidden */
 
     state.fieldCards.player.style.display = "none";
     state.fieldCards.computer.style.display = "none";
@@ -166,6 +170,7 @@ async function playAudio(status) {
 function init () {
     drawCards(5, playerSides.player1);
     drawCards(5, playerSides.computer);
+
 }
 
 init ();
