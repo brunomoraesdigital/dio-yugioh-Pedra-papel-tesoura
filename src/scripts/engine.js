@@ -86,12 +86,12 @@ async function setCardsField(cardId){
     await removeAllCardsImages();
 
     let computerCardId = await getRandomCardId();
-
-    state.fieldCards.player.style.display = "block";
-    state.fieldCards.computer.style.display = "block";
     
-    state.fieldCards.player.src = cardData[cardId].img;
-    state.fieldCards.computer.src = cardData[computerCardId].img;
+    await showHiddenCardFieldsImages(true);
+
+    await hiddenCardDetails();
+
+    await drawCardsInField(cardId, computerCardId)
 
     let duelResults = await checkDuelResults(cardId, computerCardId);
 
@@ -99,10 +99,33 @@ async function setCardsField(cardId){
     await drawButton(duelResults);
 }
 
+async function drawCardsInField(cardId, computerCardId) {
+    state.fieldCards.player.src = cardData[cardId].img;
+    state.fieldCards.computer.src = cardData[computerCardId].img;
+}
+
+async function showHiddenCardFieldsImages(value) {
+    if (value === true) {
+        state.fieldCards.player.style.display = "block";
+        state.fieldCards.computer.style.display = "block";
+    }
+    if (value === false) {
+        state.fieldCards.player.style.display = "none";
+        state.fieldCards.computer.style.display = "none";
+    }
+
+}
+
+async function hiddenCardDetails() {
+    state.cardSprites.avatar.src = "";
+    state.cardSprites.name.innerText = "";
+    state.cardSprites.type.innerText = "";
+}
+
 async function drawButton(text) {
     state.actions.buttom.innerText = text.toUpperCase();
-    state.actions.buttom.style.display = "block";
-    /*state.actions.buttom.style.visibility = "visible";*/
+    /*state.actions.buttom.style.display = "block";*/
+    state.actions.buttom.style.visibility = "visible";
 }
 async function updateScore() {
     state.score.scoreBoxUm.innerText = `Win: ${state.score.playerScore}`;
@@ -153,7 +176,8 @@ async function drawCards(cardNumbers, fieldSide) {
 
 async function resetDuel() {
     state.cardSprites.avatar.src = "";
-    state.actions.buttom.style.display = "none";
+    /*state.actions.buttom.style.display = "none";*/
+    state.actions.buttom.style.visibility = "hidden";
     /*visibility: hidden */
 
     state.fieldCards.player.style.display = "none";
@@ -168,9 +192,12 @@ async function playAudio(status) {
 }
 
 function init () {
+    showHiddenCardFieldsImages(false);
     drawCards(5, playerSides.player1);
     drawCards(5, playerSides.computer);
-
+    const bgm = document.getElementById("bgm");
+    bgm.volume = 0.5; // Remove the extra semicolon here
+    bgm.play();
 }
 
 init ();
