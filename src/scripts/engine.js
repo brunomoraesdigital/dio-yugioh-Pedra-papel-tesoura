@@ -190,14 +190,17 @@ async function playAudio(status) {
     const audio = new Audio(`./src/assets/audios/${status}.wav`);
     audio.play();
 }
+function musica () {
+    const bgm = document.getElementById("bgm");
+    bgm.volume = 0.5;
+    bgm.play();
+}
 
 function init () {
     showHiddenCardFieldsImages(false);
     drawCards(5, playerSides.player1);
     drawCards(5, playerSides.computer);
-    const bgm = document.getElementById("bgm");
-    bgm.volume = 0.5; // Remove the extra semicolon here
-    bgm.play();
+    musica ();
 }
 
 init ();
