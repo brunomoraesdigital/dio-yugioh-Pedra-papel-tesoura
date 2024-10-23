@@ -23,9 +23,9 @@ O **Yu-Gi-Oh | Jo-ken-po Edition** combina a estratégia de cartas com a simplic
 - As regras seguem o sistema de "pedra, papel e tesoura".
 
 ## Problemas Observados a Serem Resolvidos
-- música de fundo não inicia automaticamente.
-- as cartas do jogador devem iniciar viradas para cima.
-- não há nenhuma responsividade.
+- [ ] música de fundo não inicia automaticamente.
+- [ ] as cartas do jogador devem iniciar viradas para cima.
+- [ ] não há nenhuma responsividade.
 
 ## Licença
 Este projeto está licenciado sob a Licença MIT.
