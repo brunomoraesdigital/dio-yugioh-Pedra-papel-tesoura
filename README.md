@@ -1,4 +1,4 @@
-# Yu-Gi-Oh | Jo-ken-po Edition
+# Jogo Yu-Gi-Oh | Jo-ken-po Edition
 Este é um jogo de Jo-ken-po desenvolvido por mim, incorporando elementos do universo Yu-Gi-Oh, como parte do meu aprendizado na DIO.
 
 ## Ver Demonstração
